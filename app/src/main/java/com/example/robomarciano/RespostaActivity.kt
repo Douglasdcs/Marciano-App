@@ -6,13 +6,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+
 class RespostaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.resposta_activity)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
 
         val resposta = intent.getStringExtra("resposta") ?: "Sem resposta"
         Toast.makeText(this, resposta, Toast.LENGTH_LONG).show()

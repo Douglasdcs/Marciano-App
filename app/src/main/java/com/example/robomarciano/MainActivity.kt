@@ -7,6 +7,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         val editText = findViewById<TextInputEditText>(R.id.editTextInput)
         editText.text?.clear()
-        // teclado - nao funcionou
+        // teclado
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(editText.windowToken, 0)
     }
@@ -55,7 +56,6 @@ class MainActivity : AppCompatActivity() {
                     builder.appendLine("...Iniciando autodestruição...")
                     for (i in 3 downTo 1) {
                         builder.appendLine("$i...")
-                        Thread.sleep(500)
                     }
                     builder.appendLine("XABLAU!")
                 }
