@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                     builder.appendLine("...Iniciando autodestruição...")
                     for (i in 3 downTo 1) {
                         builder.appendLine("$i...")
-                        Thread.sleep(500) // opcional
+                        Thread.sleep(500)
                     }
                     builder.appendLine("XABLAU!")
                 }
