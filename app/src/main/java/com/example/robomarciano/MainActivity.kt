@@ -4,27 +4,35 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
         val editTextInput = findViewById<TextInputEditText>(R.id.editTextInput)
         val botaoEnviar = findViewById<Button>(R.id.buttonEnviar)
+        val botaoHistorico = findViewById<Button>(R.id.buttonHist)
 
         // Ação
         botaoEnviar.setOnClickListener {
             val textoDigitado = editTextInput.text.toString().trim()
+
+            Historico.adicionar(textoDigitado) // salva historico
+
             val resposta = processarEntrada(textoDigitado)
             val intent = Intent(this, RespostaActivity::class.java)
             intent.putExtra("resposta", resposta)
             startActivity(intent)
 
+        }
+
+        botaoHistorico.setOnClickListener {
+            val intent = Intent(this, HistoricoActivity::class.java)
+            startActivity(intent)
         }
     }
 
