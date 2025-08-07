@@ -14,10 +14,24 @@ class RespostaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.resposta_activity)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 
         val resposta = intent.getStringExtra("resposta") ?: "Sem resposta"
         Toast.makeText(this, resposta, Toast.LENGTH_LONG).show()
+
         val textView = findViewById<TextView>(R.id.textViewResposta)
         textView.text = resposta
+
+        val botaoVoltar = findViewById<Button>(R.id.buttonVoltar)
+        botaoVoltar.setOnClickListener {
+            finish()
+        }
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

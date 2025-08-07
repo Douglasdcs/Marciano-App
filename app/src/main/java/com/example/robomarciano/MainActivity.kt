@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
-        val textInputLayout = findViewById<TextInputLayout>(R.id.textInputLayout)
         val editTextInput = findViewById<TextInputEditText>(R.id.editTextInput)
         val botaoEnviar = findViewById<Button>(R.id.buttonEnviar)
 
@@ -27,6 +26,13 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+    // Limpa quando volta para a main
+    override fun onResume() {
+        super.onResume()
+        findViewById<TextInputEditText>(R.id.editTextInput).text?.clear()
+    }
+
 
     fun processarEntrada(input: String): String {
         val acao = Acao { comando ->
