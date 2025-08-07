@@ -3,13 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/back2">
+
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="231dp"
         android:layout_height="202dp"
-        android:src="@drawable/chat"
+        android:src="@drawable/bot2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Olá, eu sou o Robô Marciano.\n\nVocê pode me perguntar qualquer coisa.\n\nDigite a sua mensagem abaixo:"
-        android:textColor="#040404"
+        android:textAlignment="center"
+        android:textColor="#FDF8F8"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -34,6 +38,7 @@
         android:id="@+id/textInputLayout"
         android:layout_width="352dp"
         android:layout_height="148dp"
+        android:textColorHint="#FFFDFD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +49,8 @@
             android:id="@+id/editTextInput"
             android:layout_width="match_parent"
             android:layout_height="57dp"
-            android:hint="Digite aqui..." />
+            android:hint="Digite aqui..."
+            android:textColor="#F8F3F3" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -52,7 +58,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:backgroundTint="#0088AA"
         android:text="Enviar"
+        android:textColor="#FBFAFA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

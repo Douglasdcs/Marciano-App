@@ -2,6 +2,7 @@ package com.example.robomarciano
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -30,9 +31,12 @@ class MainActivity : AppCompatActivity() {
     // Limpa quando volta para a main
     override fun onResume() {
         super.onResume()
-        findViewById<TextInputEditText>(R.id.editTextInput).text?.clear()
+        val editText = findViewById<TextInputEditText>(R.id.editTextInput)
+        editText.text?.clear()
+        // teclado - nao funcionou
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(editText.windowToken, 0)
     }
-
 
     fun processarEntrada(input: String): String {
         val acao = Acao { comando ->
