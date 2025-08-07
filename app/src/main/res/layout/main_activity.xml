@@ -49,7 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="57dp"
             android:hint="Digite aqui..."
-            android:textColor="#F8F3F3" />
+            android:textColor="#F8F3F3"
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

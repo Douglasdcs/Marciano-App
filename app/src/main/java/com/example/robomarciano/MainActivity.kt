@@ -47,21 +47,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun processarEntrada(input: String): String {
+        val builder = StringBuilder()
+
         val acao = Acao { comando ->
             when (comando.lowercase()) {
                 "autodestruir" -> {
-                    val builder = StringBuilder()
                     builder.appendLine("...Iniciando autodestruição...")
                     for (i in 3 downTo 1) {
                         builder.appendLine("$i...")
-                        Thread.sleep(500) // cuidado: não use isso na UI thread!
+                        Thread.sleep(500) // opcional
                     }
-                    builder.append("XABLAU!")
-                    builder.toString()
+                    builder.appendLine("XABLAU!")
                 }
-                "dançar" -> "Marciano faz a dança do robô"
-                "desconectar" -> "Você quer me matar, é?"
-                else -> "Comando desconhecido: '$comando'"
+                "dançar" -> builder.appendLine("Marciano faz a dança do robô")
+                "desconectar" -> builder.appendLine("Você quer me matar, é?")
+                else -> builder.appendLine("Comando desconhecido: '$comando'")
             }
         }
 
@@ -83,7 +83,10 @@ class MainActivity : AppCompatActivity() {
             marciano.responder(input)
         }
 
+        builder.appendLine(resposta)
+
         marciano.acaoUser()
-        return resposta
+
+        return builder.toString().trim()
     }
 }
